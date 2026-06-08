@@ -111,20 +111,37 @@ nav a,
 
 /* ==================== MOBILE SIDEBAR ==================== */
 
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 16, 40, 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+    z-index: 998;
+}
+
+body.sidebar-open .sidebar-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 .mobile-sidebar {
     position: fixed;
     top: 0;
     right: -100%;
 
-    width: 50%;
+    width: 78%;
     height: 100vh;
-    padding: 100px 30px 30px;
+    padding: 28px 32px 36px;
 
     display: flex;
     flex-direction: column;
+    align-items: stretch;
 
-    background: var(--color-panel-blue);
-    transition: .3s ease;
+    background: var(--color-hero-bg);
+    color: var(--color-white);
+    transition: right .3s ease;
     z-index: 999;
 }
 
@@ -133,30 +150,57 @@ nav a,
 }
 
 .mobile-sidebar a {
-    margin-bottom: 25px;
+    display: block;
+    width: 100%;
+    padding: 22px 0;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.35;
 }
 
 .sidebar-top {
     justify-content: space-between;
-    margin-bottom: 50px;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 22px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    flex-shrink: 0;
 }
 
 .sidebar-top img {
-    width: 140px;
+    width: 118px;
 }
 
 .sidebar-status {
     gap: 10px;
     margin-top: auto;
+    padding-top: 28px;
+    font-size: 18px;
     font-weight: 600;
+    align-self: center;
+    justify-content: center;
 }
 
 .close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    min-width: 44px;
+    min-height: 44px;
     background: none;
     border: none;
-    color: var(--color-white);
-    font-size: 20px;
     cursor: pointer;
+    flex-shrink: 0;
+}
+
+.close-btn img {
+    width: 28px;
+    height: 28px;
+    display: block;
 }
 
 /* ==================== HERO MAIN ==================== */
@@ -698,9 +742,9 @@ nav a,
 
 .how-step h3 {
     color: var(--color-text-dark);
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 700;
-    line-height: 38px;
+    line-height: 30px;
 }
 
 .how-step p {
@@ -710,7 +754,35 @@ nav a,
 }
 
 .how-mobile-reviews {
-    display: none;
+    grid-area: reviews;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.how-mobile-reviews p {
+    color: var(--color-text-dark);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    max-width: 420px;
+}
+
+.how-mobile-reviews img {
+    width: auto;
+    max-width: 240px;
+    height: auto;
+    object-fit: contain;
+}
+
+.how-mobile-reviews-line {
+    width: min(280px, 100%);
+    height: 1px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(21, 178, 245, 0), rgba(21, 178, 245, 0.65), rgba(21, 178, 245, 0));
 }
 
 .how-testimonial {
@@ -718,6 +790,7 @@ nav a,
     display: grid;
     grid-template-columns: 46px minmax(0, 1fr) 46px;
     grid-template-areas:
+        "reviews reviews reviews"
         "prev content next"
         "dots dots dots";
     gap: 18px 26px;

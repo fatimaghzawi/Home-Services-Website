@@ -178,7 +178,7 @@
     }
 
     .how-step h3 {
-        font-size: 22px;
+        font-size: 20px;
         line-height: 1.3;
     }
 
@@ -294,7 +294,7 @@
 
 @media (max-width: 768px) {
     :root {
-        --mobile-gutter: 40px;
+        --mobile-gutter: 16px;
     }
 
     html,
@@ -302,9 +302,13 @@
         overflow-x: hidden;
     }
 
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
     .hero {
         min-height: auto;
-        padding: 20px;
+        padding: 20px var(--mobile-gutter);
     }
 
     .navbar {
@@ -317,8 +321,36 @@
     }
 
     .menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .menu-btn img {
+        width: 28px;
+        height: 28px;
         display: block;
-        font-size: 28px;
+    }
+
+    .mobile-sidebar {
+        width: 80%;
+        padding: 24px 28px 32px;
+    }
+
+    .mobile-sidebar a {
+        font-size: 24px;
+        padding: 24px 0;
+    }
+
+    .sidebar-top img {
+        width: 112px;
+    }
+
+    .close-btn img {
+        width: 30px;
+        height: 30px;
     }
 
     .hero-main {
@@ -406,7 +438,7 @@
 
     .left-decoration,
     .right-decoration {
-        width: 180px;
+        width: 90px;
     }
 
     .pro-features {
@@ -521,7 +553,7 @@
     }
 
     .guarantee-wrapper {
-        padding: 32px 18px;
+        padding: 32px 14px;
         border-radius: 18px;
     }
 
@@ -629,7 +661,7 @@
 
     .how-step h3 {
         grid-area: title;
-        font-size: 22px;
+        font-size: 18px;
         line-height: 1.25;
         text-align: left;
         align-self: center;
@@ -643,38 +675,29 @@
     }
 
     .how-mobile-reviews {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         gap: 12px;
-        margin-top: 18px;
-        text-align: center;
+        margin-bottom: 4px;
     }
 
     .how-mobile-reviews p {
-        color: var(--color-text-dark);
         font-size: 28px;
-        font-weight: 700;
         line-height: 1.5;
+        max-width: none;
     }
 
     .how-mobile-reviews img {
         width: min(240px, 78vw);
-        height: auto;
-        object-fit: contain;
     }
 
     .how-mobile-reviews-line {
         width: min(280px, 86vw);
-        height: 1px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, rgba(21, 178, 245, 0), rgba(21, 178, 245, 0.65), rgba(21, 178, 245, 0));
     }
 
     .how-testimonial {
         margin-top: 28px;
         grid-template-columns: auto auto auto;
         grid-template-areas:
+            "reviews reviews reviews"
             "content content content"
             "prev dots next";
         gap: 16px 20px;
@@ -783,7 +806,7 @@
     }
 
     .faq-question {
-        padding: 16px 18px;
+        padding: 16px 14px;
         justify-content: space-between;
         text-align: left;
     }
@@ -795,7 +818,7 @@
     }
 
     .faq-answer {
-        padding: 0 18px 16px;
+        padding: 0 14px 16px;
     }
 
     .faq-answer p {
@@ -810,7 +833,7 @@
     }
 
     .cta-banner-notch {
-        left: 56px;
+        left: 24px;
         width: 220px;
         height: 18px;
     }
@@ -856,7 +879,7 @@
     }
 
     .site-footer {
-        padding: 36px 24px 40px;
+        padding: 36px var(--mobile-gutter) 40px;
     }
 
     .footer-newsletter {

@@ -1,13 +1,23 @@
 const menuBtn = document.querySelector(".menu-btn");
 const sidebar = document.querySelector(".mobile-sidebar");
 const closeBtn = document.querySelector(".close-btn");
+const sidebarOverlay = document.querySelector(".sidebar-overlay");
+
+function setSidebarOpen(isOpen) {
+    sidebar.classList.toggle("active", isOpen);
+    document.body.classList.toggle("sidebar-open", isOpen);
+}
 
 menuBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
+    setSidebarOpen(!sidebar.classList.contains("active"));
 });
 
 closeBtn.addEventListener("click", () => {
-    sidebar.classList.remove("active");
+    setSidebarOpen(false);
+});
+
+sidebarOverlay.addEventListener("click", () => {
+    setSidebarOpen(false);
 });
 
 const testimonialData = [
