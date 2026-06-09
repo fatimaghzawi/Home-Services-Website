@@ -51,7 +51,16 @@ img {
 }
 
 /* ==================== SHARED FLEX STYLES ==================== */
-
+.navbar{
+    background: var(--color-hero-bg);
+    color: var(--color-white);
+    padding: 24px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
 .navbar,
 .service-status,
 .sidebar-status,
